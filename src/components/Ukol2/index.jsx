@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { CoinButton } from "./CoinButton";
+import { useState } from 'react';
+import { CoinButton } from './CoinButton';
 import './style.css';
 
 /*
@@ -19,19 +19,22 @@ import './style.css';
 
 export const Ukol2 = () => {
   const [amount, setAmount] = useState(0);
-  
+  const handleCoinClick = (value) => {
+    setAmount(amount + value);
+  };
+
   return (
     <>
       <p>
         <strong>Částka: {amount} Kč</strong>
       </p>
       <div className="button-group">
-        <CoinButton value={1} />
-        <CoinButton value={2} />
-        <CoinButton value={5} />
-        <CoinButton value={10} />
-        <CoinButton value={20} />
-        <CoinButton value={50} />
+        <CoinButton value={1} onCoinClick={handleCoinClick} />
+        <CoinButton value={2} onCoinClick={handleCoinClick} />
+        <CoinButton value={5} onCoinClick={handleCoinClick} />
+        <CoinButton value={10} onCoinClick={handleCoinClick} />
+        <CoinButton value={20} onCoinClick={handleCoinClick} />
+        <CoinButton value={50} onCoinClick={handleCoinClick} />
       </div>
     </>
   );
